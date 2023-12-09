@@ -1,4 +1,5 @@
-import { memo } from "react";
+import requests from "@/service";
+import { memo, useEffect } from "react";
 import type { FC, ReactNode } from "react";
 
 interface IProps {
@@ -6,6 +7,16 @@ interface IProps {
 }
 
 const Recommend: FC<IProps> = memo(() => {
+  useEffect(() => {
+    requests
+      .get({
+        url: "/banner"
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  });
+
   return <div>Recommend</div>;
 });
 
