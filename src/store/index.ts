@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useSelector, TypedUseSelectorHook, useDispatch, shallowEqual } from "react-redux";
 
+import recommendReducer from "@/views/discover/c-views/recommend/store";
+
 const store = configureStore({
-  reducer: {}
+  reducer: {
+    recommend: recommendReducer
+  }
 });
 
 type GetStateFnType = typeof store.getState;

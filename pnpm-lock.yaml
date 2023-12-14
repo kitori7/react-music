@@ -17,6 +17,9 @@ dependencies:
   axios:
     specifier: ^1.6.2
     version: registry.npmmirror.com/axios@1.6.2
+  classnames:
+    specifier: ^2.3.2
+    version: registry.npmmirror.com/classnames@2.3.2
   less:
     specifier: ^4.2.0
     version: registry.npmmirror.com/less@4.2.0

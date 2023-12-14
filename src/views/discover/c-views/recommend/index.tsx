@@ -1,23 +1,20 @@
-import requests from "@/service";
+import { useAppDispatch } from "@/store";
 import { memo, useEffect } from "react";
 import type { FC, ReactNode } from "react";
+import { fetchBannerDataAction } from "./store";
+import TopBanner from "./c-cpns/top-banner";
 
 interface IProps {
   children?: ReactNode;
 }
 
 const Recommend: FC<IProps> = memo(() => {
+  // 发起action
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    requests
-      .get({
-        url: "/banner"
-      })
-      .then((res) => {
-        console.log(res);
-      });
+    dispatch(fetchBannerDataAction());
   });
-
-  return <div>Recommend</div>;
+  return <TopBanner></TopBanner>;
 });
 
 export default Recommend;

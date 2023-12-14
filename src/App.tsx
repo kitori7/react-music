@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className="app">
       <AppHeader></AppHeader>
-      <div className="main"> {useRoutes(routes)}aap</div>
+      <div className="main"> {useRoutes(routes)}</div>
       <AppFooter></AppFooter>
     </div>
   );
