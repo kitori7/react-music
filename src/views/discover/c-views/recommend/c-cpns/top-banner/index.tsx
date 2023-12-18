@@ -38,7 +38,7 @@ const TopBanner: FC<IProps> = memo(() => {
   }
   // 获取背景图片
   let bgImageUrl = "";
-  if (current >= 0 && banners.length > 0) {
+  if (current >= 0 && banners?.length > 0) {
     bgImageUrl = banners[current]?.imageUrl + "?imageView&blur=40x20&quot";
   }
   function handleDotClick(index: number) {
@@ -56,26 +56,28 @@ const TopBanner: FC<IProps> = memo(() => {
             autoplay
             ref={bannerRef}
           >
-            {banners.map((item) => {
-              return (
-                <div className="banner-item" key={item.imageUrl}>
-                  <img className="image" src={item.imageUrl} alt={item.typeTitle} />
-                </div>
-              );
-            })}
+            {banners &&
+              banners.map((item) => {
+                return (
+                  <div className="banner-item" key={item.imageUrl}>
+                    <img className="image" src={item.imageUrl} alt={item.typeTitle} />
+                  </div>
+                );
+              })}
           </Carousel>
           <ul className="dots">
-            {banners.map((item, index) => {
-              return (
-                <li key={item.imageUrl} onClick={() => handleDotClick(index)}>
-                  <span
-                    className={classNames("item", {
-                      active: index === current
-                    })}
-                  ></span>
-                </li>
-              );
-            })}
+            {banners &&
+              banners.map((item, index) => {
+                return (
+                  <li key={item.imageUrl} onClick={() => handleDotClick(index)}>
+                    <span
+                      className={classNames("item", {
+                        active: index === current
+                      })}
+                    ></span>
+                  </li>
+                );
+              })}
           </ul>
         </BannerLeft>
         <BannerRight></BannerRight>
