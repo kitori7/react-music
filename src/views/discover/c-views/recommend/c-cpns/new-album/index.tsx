@@ -3,12 +3,23 @@ import type { ElementRef, FC, ReactNode } from "react";
 import { AlbumWrapper } from "./style";
 import AreaHeaderV1 from "@/components/area-header-v1";
 import { Carousel } from "antd";
+import { useAppSelector } from "@/store";
+import { shallowEqual } from "react-redux";
+import NewAlbumItem from "@/components/new-album-item";
 
 interface IProps {
   children?: ReactNode;
 }
 
 const NewAlbum: FC<IProps> = memo(() => {
+  // 数据
+  const { newAlbums } = useAppSelector(
+    (state) => ({
+      newAlbums: state.recommend.newAlbums
+    }),
+    shallowEqual
+  );
+
   const bannerRef = useRef<ElementRef<typeof Carousel>>(null);
   function handelClick(isNext = false) {
     if (isNext) {
@@ -24,8 +35,17 @@ const NewAlbum: FC<IProps> = memo(() => {
         <button className="arrow sprite_02 arrow-left" onClick={() => handelClick()}></button>
         <div className="banner">
           <Carousel ref={bannerRef} dots={false} speed={1500}>
-            {[1, 2].map((item) => {
-              return <h1 key={item}>{item}</h1>;
+            {[0, 1].map((item) => {
+              return (
+                <div className="album-box" key={item}>
+                  <div className="album-list">
+                    {newAlbums &&
+                      newAlbums.slice(item * 5, (item + 1) * 5).map((album) => {
+                        return <NewAlbumItem key={album.id} itemData={album} />;
+                      })}
+                  </div>
+                </div>
+              );
             })}
           </Carousel>
         </div>

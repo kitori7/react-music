@@ -39,10 +39,12 @@ export const AlbumWrapper = styled.div`
       overflow: hidden;
       flex: 1;
 
-      .album-list {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+      .album-box {
+        .album-list {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
       }
     }
   }

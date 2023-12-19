@@ -11,3 +11,16 @@ export function getHotRecommend() {
     url: "/personalized"
   });
 }
+
+export function getNewAlbum() {
+  return requests.get({
+    url: "/album/newest"
+  });
+}
+
+export function getPlayListDetail(id: number) {
+  return requests.get({
+    url: "/playlist/detail",
+    params: { id }
+  });
+}
