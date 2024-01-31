@@ -7,6 +7,7 @@ import { RecommendWrapper } from "./style";
 import HotRecommend from "./c-cpns/hot-recommend";
 import NewAlbum from "./c-cpns/new-album";
 import TopRanking from "./c-cpns/top-ranking";
+import UserLogin from "./c-cpns/user-login";
 
 interface IProps {
   children?: ReactNode;
@@ -28,7 +29,9 @@ const Recommend: FC<IProps> = memo(() => {
           <NewAlbum></NewAlbum>
           <TopRanking></TopRanking>
         </div>
-        <div className="right"></div>
+        <div className="right">
+          <UserLogin></UserLogin>
+        </div>
       </div>
     </RecommendWrapper>
   );
