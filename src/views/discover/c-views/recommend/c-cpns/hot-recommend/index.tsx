@@ -4,6 +4,7 @@ import { RecommendWrapper } from "./style";
 import AreaHeaderV1 from "@/components/area-header-v1";
 import SongsItem from "@/components/songs-item";
 import { useAppSelector } from "@/store";
+import { shallowEqual } from "react-redux";
 
 interface IProps {
   children?: ReactNode;
@@ -12,7 +13,7 @@ interface IProps {
 const HotRecommend: FC<IProps> = memo(() => {
   const { hotRecommends } = useAppSelector((state) => ({
     hotRecommends: state.recommend.hotRecommends
-  }));
+  }),shallowEqual);
   return (
     <RecommendWrapper>
       <AreaHeaderV1

@@ -24,3 +24,12 @@ export function getPlayListDetail(id: number) {
     params: { id }
   });
 }
+
+export function getArtistList(limit: number = 30) {
+  return requests.get({
+    url: "/artist/list",
+    params: {
+      limit
+    }
+  });
+}

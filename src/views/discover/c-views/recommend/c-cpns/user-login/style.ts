@@ -1,7 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const UserLoginWrapper = styled.div`
-  height: 126px;
+export const LoginWrapper = styled.div`
   background-position: 0 0;
   padding: 16px 22px;
   display: flex;
@@ -28,4 +27,4 @@ export const UserLoginWrapper = styled.div`
       background-position: -110px -195px;
     }
   }
-`
+`;

@@ -8,7 +8,17 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": pathSrc,
-    },
+      "@": pathSrc
+    }
   },
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://codercba.com:9002",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, "")
+      }
+    }
+
+  }
 });
