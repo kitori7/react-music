@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const PlayerBarWrapper = styled.div`
   position: fixed;
@@ -20,9 +20,9 @@ export const PlayerBarWrapper = styled.div`
     bottom: 0;
     height: 47px;
   }
-`
+`;
 interface IBarControl {
-  isPlaying: boolean
+  $isPlaying: boolean;
 }
 export const BarControl = styled.div<IBarControl>`
   display: flex;
@@ -46,13 +46,13 @@ export const BarControl = styled.div<IBarControl>`
     width: 36px;
     height: 36px;
     margin: 0 8px;
-    background-position: 0 ${(props) => (props.isPlaying ? '-165px' : '-204px')};
+    background-position: 0 ${(props) => (props.$isPlaying ? "-165px" : "-204px")};
   }
 
   .next {
     background-position: -80px -130px;
   }
-`
+`;
 export const BarPlayerInfo = styled.div`
   display: flex;
   width: 642px;
@@ -93,12 +93,12 @@ export const BarPlayerInfo = styled.div`
 
         .ant-slider-rail {
           height: 9px;
-          background: url('@/assets/img/progress_bar.png') right 0;
+          background: url("/src/assets/img/progress_bar.png") right 0;
         }
 
         .ant-slider-track {
           height: 9px;
-          background: url('@/assets/img/progress_bar.png') left -66px;
+          background: url("/src/assets/img/progress_bar.png") left -66px;
         }
 
         .ant-slider-handle {
@@ -106,7 +106,15 @@ export const BarPlayerInfo = styled.div`
           height: 24px;
           border: none;
           margin-top: -7px;
-          background: url('@/assets/img/sprite_icon.png') 0 -250px;
+          background: url(/src/assets/img/sprite_icon.png) 0 -250px;
+          inset-block-start: auto;
+
+          &::before {
+            display: none;
+          }
+          &::after {
+            display: none;
+          }
         }
       }
 
@@ -120,10 +128,10 @@ export const BarPlayerInfo = styled.div`
       }
     }
   }
-`
+`;
 
 interface IBarOperator {
-  playMode: number
+  $playMode: number;
 }
 export const BarOperator = styled.div<IBarOperator>`
   display: flex;
@@ -142,7 +150,7 @@ export const BarOperator = styled.div<IBarOperator>`
   }
 
   .pip {
-    background: url('@/assets/img/pip_icon');
+    background: url("/src/assets/img/pip_icon.png");
   }
 
   .favor {
@@ -166,13 +174,13 @@ export const BarOperator = styled.div<IBarOperator>`
 
     .loop {
       background-position: ${(props) => {
-        switch (props.playMode) {
+        switch (props.$playMode) {
           case 1:
-            return '-66px -248px'
+            return "-66px -248px";
           case 2:
-            return '-66px -344px'
+            return "-66px -344px";
           default:
-            return '-3px -344px'
+            return "-3px -344px";
         }
       }};
     }
@@ -185,4 +193,4 @@ export const BarOperator = styled.div<IBarOperator>`
       background-position: -42px -68px;
     }
   }
-`
+`;

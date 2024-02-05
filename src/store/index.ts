@@ -2,10 +2,12 @@ import { configureStore } from "@reduxjs/toolkit";
 import { useSelector, TypedUseSelectorHook, useDispatch, shallowEqual } from "react-redux";
 
 import recommendReducer from "@/views/discover/c-views/recommend/store";
+import playerReducer from "@/views/player/store/player";
 
 const store = configureStore({
   reducer: {
-    recommend: recommendReducer
+    recommend: recommendReducer,
+    player: playerReducer
   }
 });
 
